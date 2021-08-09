@@ -1,4 +1,4 @@
-package me.zhenxin.aida.uitls
+package me.zhenxin.aida.utils
 
 /**
  * ApkTool Utils
