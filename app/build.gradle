@@ -30,6 +30,9 @@ android {
 dependencies {
     // XUI
     implementation 'com.github.xuexiangjys:XUI:1.1.8'
+    // XUtil
+    implementation 'com.github.xuexiangjys.XUtil:xutil-core:2.0.0'
+    implementation 'com.github.xuexiangjys.XUtil:xutil-sub:1.1.8'
 
     // AndroidX
     implementation 'androidx.appcompat:appcompat:1.3.1'
