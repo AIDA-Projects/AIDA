@@ -23,6 +23,7 @@ public class SplashActivity extends BaseSplashActivity {
     @Override
     public void onSplashFinished() {
         ActivityUtils.startActivity(MainActivity.class);
+        finish();
     }
 
     @Override
