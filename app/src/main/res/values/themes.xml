@@ -29,4 +29,21 @@
         <item name="fab_colorPressed">@color/btnPressedColor</item>
         <item name="fab_colorRipple">@color/btnRippleColor</item>
     </style>
+
+
+    <!-- 文件选择器 -->
+    <style name="FCToolbar.Popup" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+    </style>
+
+    <style name="FCToolbar.Tittle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/xui_config_color_white</item>
+    </style>
+
+    <style name="FCToolbar.SubTittle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/file_choose_toolbar_subtitle_color</item>
+    </style>
+
 </resources>
