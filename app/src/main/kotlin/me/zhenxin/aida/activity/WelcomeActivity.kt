@@ -1,12 +1,15 @@
 package me.zhenxin.aida.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import me.zhenxin.aida.R
+import androidx.appcompat.app.AppCompatActivity
+import me.zhenxin.aida.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityWelcomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_welcome)
+        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }

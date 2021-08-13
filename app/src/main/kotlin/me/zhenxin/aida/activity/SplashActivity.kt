@@ -12,6 +12,7 @@ import me.zhenxin.aida.R
  * @since 2021/8/9 17:18
  */
 class SplashActivity : BaseSplashActivity() {
+
     override fun onCreateActivity() {
         initSplashView(R.drawable.xui_config_bg_splash)
         startSplash(false)
