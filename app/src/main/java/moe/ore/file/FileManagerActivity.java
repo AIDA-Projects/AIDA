@@ -69,6 +69,8 @@ public class FileManagerActivity extends AppCompatActivity {
 
     private void init() {
         fileManager.setListener(new FileListener() {
+            final ArrayList<FileObject> fileObjects = new ArrayList<>();
+            
             @Override
             public void onClickFile(File file) {
                 if(fileChooseInterface != null) {
@@ -78,30 +80,29 @@ public class FileManagerActivity extends AppCompatActivity {
 
             @Override
             public void onLoadFileList(File[] files) {
-                ArrayList<FileObject> fileObjects = new ArrayList<>();
+                fileObjects.clear();
                 int dirNum = 0;
                 int fileNum = 0;
-                if(files.length > 0) {
-                    for (File file : files) {
-                        if(file.isDirectory()) {
-                            dirNum++;
-                        } else if (file.isFile()) {
-                            fileNum++;
-                        }
-                        fileObjects.add(new FileObject(file));
+                for (File file : files) {
+                    if(file.isDirectory()) {
+                        dirNum++;
+                    } else if (file.isFile()) {
+                        fileNum++;
                     }
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    fileObjects.add(new FileObject(file));
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         fileObjects.sort(comparator);
-                    } else {
+                } else {
                         Collections.sort(fileObjects, comparator);
-                    }
                 }
-                FileToolBarHelper.setToolbarDirInfo(mToolbar, dirNum, fileNum, 0, 0);
+                FileToolBarHelper.setToolbarDirInfo(toolbar, dirNum, fileNum, 0, 0);
                 if(adapter == null) {
-                    adapter = new FileObjectAdapter(FileManagerActivity.this, fileObjects, fileManager);
+                    adapter = new FileObjectAdapter(FileChooseActivity.this, fileObjects, fileManager);
+                    mListView.setAdapter(adapter);
+                } else {
+                    adapter.notifyDataSetChanged();
                 }
-                adapter.notifyDataSetChanged();
-                mListView.setAdapter(adapter);
             }
 
             @Override
