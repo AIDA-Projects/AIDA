@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.clans.fab.FloatingActionMenu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/project_manager_fab_menu"
+    style="@style/FabMenu"
+    android:layout_gravity="bottom|end"
+    android:layout_margin="@dimen/activity_vertical_margin"
+    app:menu_colorNormal="@color/menuBtnNormalColor"
+    app:menu_colorPressed="@color/btnPressedColor"
+    app:menu_colorRipple="@color/btnRippleColor"
+    app:menu_labels_ellipsize="end"
+    app:menu_labels_singleLine="true"
+    tools:ignore="RtlHardcoded">
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/pm_fab_create_project"
+        style="@style/FabMenu.Buttons"
+        android:maxWidth="5dp"
+        android:layout_width="5dp"
+        android:src="@drawable/ic_floating_action_menu_project"
+        app:fab_label="创建项目"/>
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/pm_fab_import"
+        style="@style/FabMenu.Buttons"
+        android:src="@drawable/ic_floating_action_menu_open"
+        app:fab_label="导入项目"/>
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/pm_fab_file"
+        style="@style/FabMenu.Buttons"
+        android:src="@drawable/ic_floating_action_menu_file"
+        app:fab_label="文件"/>
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/pm_fab_dir"
+        style="@style/FabMenu.Buttons"
+        android:src="@drawable/ic_floating_action_menu_dir"
+        app:fab_label="文件夹"/>
+
+</com.github.clans.fab.FloatingActionMenu>

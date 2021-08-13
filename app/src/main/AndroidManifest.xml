@@ -13,7 +13,10 @@
             android:name=".activity.WelcomeActivity"
             android:exported="true" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.CreateProjectActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.HistoryProjectActivity"
             android:exported="true" />
         <activity
             android:name=".activity.SplashActivity"

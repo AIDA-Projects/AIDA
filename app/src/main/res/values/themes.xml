@@ -6,4 +6,27 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="ToolbarStyle" parent="Base.Widget.AppCompat.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?attr/colorPrimaryDark</item>
+        <item name="titleTextColor">@color/xui_config_color_white</item>
+        <item name="subtitleTextColor">@color/xui_config_color_white</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+    </style>
+
+    <!-- FabMenu -->
+    <style name="FabMenu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="FabMenu.Buttons">
+        <item name="fab_size">normal</item>
+        <item name="fab_colorNormal">@color/btnNormalColor</item>
+        <item name="fab_colorPressed">@color/btnPressedColor</item>
+        <item name="fab_colorRipple">@color/btnRippleColor</item>
+    </style>
 </resources>
