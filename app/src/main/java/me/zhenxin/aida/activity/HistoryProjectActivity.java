@@ -8,10 +8,8 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.github.clans.fab.FloatingActionMenu;
@@ -29,37 +27,17 @@ import me.zhenxin.aida.databinding.ActivityHistoryProjectBinding;
 import me.zhenxin.aida.databinding.MenuProjectManagerFabBinding;
 import me.zhenxin.aida.entity.HistoryProjectEntity;
 
-public class HistoryProjectActivity extends AppCompatActivity {
+public class HistoryProjectActivity extends BaseActivity {
 
     /**
      * 历史项目视图布局
      */
-    private ActivityHistoryProjectBinding activityHistoryProjectBinding;
-
-    /**
-     * 项目管理菜单选项
-     */
-    private MenuProjectManagerFabBinding menuProjectManagerFabBinding;
-
-    /**
-     * 历史项目列表组件
-     */
-    ListView historyProjectListView;
-
-    /**
-     * 历史项目工具栏
-     */
-    Toolbar historyProjectToolBar;
-
-    /**
-     * 历史项目搜索
-     */
-    MaterialSearchView historyProjectSearchView;
+    private ActivityHistoryProjectBinding binding;
 
     /**
      * 项目管理菜单
      */
-    FloatingActionMenu projectManagerMenu;
+    private FloatingActionMenu projectManagerMenu;
 
 
     /**
@@ -71,31 +49,31 @@ public class HistoryProjectActivity extends AppCompatActivity {
      */
     private HistoryProjectAdapter historyProjectAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityHistoryProjectBinding = ActivityHistoryProjectBinding.inflate(getLayoutInflater());
-        setContentView(activityHistoryProjectBinding.getRoot());
+        binding = ActivityHistoryProjectBinding.inflate(getLayoutInflater());
+        projectManagerMenu = binding.menuProjectManagerFab.projectManagerFabMenu;
+        setContentView(binding.getRoot());
         initViews();
         initData();
         loadListView();
         initEvent();
+        MenuProjectManagerFabBinding pm = binding.menuProjectManagerFab;
+        ArrayList<View> views = new ArrayList<>();
+        views.add(pm.pmFabCreateProject);
+        views.add(pm.pmFabImport);
+        views.add(pm.pmFabFile);
+        views.add(pm.pmFabDir);
+        setOnClick(views, this::onClickEvent);
     }
 
     /**
      * 初始化视图
      */
     private void initViews() {
-        historyProjectListView = activityHistoryProjectBinding.historyProjectListView;
-        historyProjectToolBar = activityHistoryProjectBinding.historyProjectToolBar;
-        historyProjectSearchView = activityHistoryProjectBinding.historyProjectSearchView;
-        // 项目管理菜单
-        projectManagerMenu = menuProjectManagerFabBinding.projectManagerFabMenu;
-
-
         // 设置列表视图文本过滤器
-        historyProjectListView.setTextFilterEnabled(true);
+        binding.historyProjectListView.setTextFilterEnabled(true);
 
         // 设置菜单
         //historyProjectToolBar.inflateMenu(R.menu.menu_history_project);
@@ -103,27 +81,27 @@ public class HistoryProjectActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // 搜索
-        historyProjectSearchView.setVoiceSearch(false);
-        historyProjectSearchView.setEllipsize(true);
+        binding.historyProjectSearchView.setVoiceSearch(false);
+        binding.historyProjectSearchView.setEllipsize(true);
         // historyProjectSearchView.setSuggestions(getResources().getStringArray(R.array.query_suggestions));
-        historyProjectSearchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+        binding.historyProjectSearchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                SnackbarUtils.Long(historyProjectSearchView, "Query: " + query).show();
+                SnackbarUtils.Long(binding.historyProjectSearchView, "Query: " + query).show();
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
                 if (StringUtils.isEmpty(newText)) {
-                    historyProjectListView.clearTextFilter();
+                    binding.historyProjectListView.clearTextFilter();
                 } else {
-                    historyProjectListView.setFilterText(newText);
+                    binding.historyProjectListView.setFilterText(newText);
                 }
                 return true;
             }
         });
-        historyProjectSearchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+        binding.historyProjectSearchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public void onSearchViewShown() {
                 //Do some magic
@@ -134,7 +112,7 @@ public class HistoryProjectActivity extends AppCompatActivity {
                 //Do some magic
             }
         });
-        historyProjectSearchView.setSubmitOnClick(true);
+        binding.historyProjectSearchView.setSubmitOnClick(true);
     }
 
     /**
@@ -179,14 +157,14 @@ public class HistoryProjectActivity extends AppCompatActivity {
             }
         });
         // 设置适配器
-        historyProjectListView.setAdapter(historyProjectAdapter);
+        binding.historyProjectListView.setAdapter(historyProjectAdapter);
     }
 
     /**
      * 初始化事件
      */
     private void initEvent() {
-        historyProjectToolBar.setOnMenuItemClickListener(menuItemClickListener);
+        binding.historyProjectToolBar.setOnMenuItemClickListener(menuItemClickListener);
     }
 
     Toolbar.OnMenuItemClickListener menuItemClickListener = item -> {
@@ -207,15 +185,15 @@ public class HistoryProjectActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_search, menu);
 
         MenuItem item = menu.findItem(R.id.action_search);
-        historyProjectSearchView.setMenuItem(item);
+        binding.historyProjectSearchView.setMenuItem(item);
 
         return true;
     }
 
     @Override
     public void onBackPressed() {
-        if (historyProjectSearchView.isSearchOpen()) {
-            historyProjectSearchView.closeSearch();
+        if (binding.historyProjectSearchView.isSearchOpen()) {
+            binding.historyProjectSearchView.closeSearch();
         } else {
             super.onBackPressed();
         }
@@ -228,7 +206,7 @@ public class HistoryProjectActivity extends AppCompatActivity {
             if (matches != null && matches.size() > 0) {
                 String searchWrd = matches.get(0);
                 if (!TextUtils.isEmpty(searchWrd)) {
-                    historyProjectSearchView.setQuery(searchWrd, false);
+                    binding.historyProjectSearchView.setQuery(searchWrd, false);
                 }
             }
 
@@ -242,8 +220,15 @@ public class HistoryProjectActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    @OnClick({R.id.pm_fab_create_project, R.id.pm_fab_import, R.id.pm_fab_file, R.id.pm_fab_dir})
-    void onClick(View v) {
+    class OnClick implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+
+        }
+    }
+
+    void onClickEvent(View v) {
         switch (v.getId()) {
             case R.id.pm_fab_create_project:
                 ActivityUtils.startActivity(CreateProjectActivity.class);

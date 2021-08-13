@@ -3,13 +3,11 @@ package me.zhenxin.aida.entity;
 import android.graphics.drawable.Drawable;
 
 import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.Transient;
 import org.greenrobot.greendao.annotation.Unique;
-
-import java.time.LocalDateTime;
-import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * 历史项目实体类

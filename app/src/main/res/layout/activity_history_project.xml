@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorAccent"
+    android:orientation="vertical"
     tools:context=".activity.HistoryProjectActivity">
 
     <FrameLayout
@@ -30,6 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <include layout="@layout/menu_project_manager_fab" />
+    <include
+        android:id="@+id/menu_project_manager_fab"
+        layout="@layout/menu_project_manager_fab" />
 
 </LinearLayout>
