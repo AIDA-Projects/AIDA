@@ -4,97 +4,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/backgroundColor"
+    android:orientation="vertical"
     tools:context=".activity.CreateProjectActivity">
 
     <com.xuexiang.xui.widget.actionbar.TitleBar
         android:id="@+id/title_bar_create_project"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/backgroundColor"
         app:tb_actionPadding="20dp"
         app:tb_centerGravity="left"
         app:tb_leftImageResource="@drawable/ic_navigation_back_white"
         app:tb_titleText="新建项目"
-        app:tb_useThemeColor="false"
-        android:background="@color/backgroundColor"/>
+        app:tb_useThemeColor="false" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none">
 
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/workSpaceBackgroundColor"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:cardUseCompatPadding="true"
-            app:contentPadding="20sp"
-            android:accessibilityPaneTitle="标题"
-            >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:orientation="vertical"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:accessibilityPaneTitle="标题"
+                app:cardBackgroundColor="@color/workSpaceBackgroundColor"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="20sp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/textColor"
-                    android:layout_marginBottom="20sp"
-                    android:text="项目" />
-
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="16dp"
-                    android:gravity="start"
-                    android:textAlignment="viewStart"
-                    android:textDirection="locale">
+                    android:orientation="vertical">
 
-                    <com.xuexiang.xui.widget.edittext.ClearEditText
-                        android:id="@+id/input_create_project_name"
-                        android:textColor="@color/textColor"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:hint="项目名称"
-                        android:layoutDirection="locale"
-                        android:textAlignment="viewStart"
-                        app:pet_enableIconAlpha="true"
-                        app:pet_isAsteriskStyle="true" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_marginBottom="20sp"
+                        android:text="APP信息"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
 
-                <com.google.android.material.textfield.TextInputLayout
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:accessibilityPaneTitle="标题"
+                app:cardBackgroundColor="@color/workSpaceBackgroundColor"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="20sp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="16dp"
-                    android:gravity="start"
-                    android:textAlignment="viewStart"
-                    android:textDirection="locale">
+                    android:orientation="vertical">
 
-                    <com.xuexiang.xui.widget.edittext.ClearEditText
-                        android:id="@+id/input_create_project_pkg"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20sp"
+                        android:text="项目"
                         android:textColor="@color/textColor"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_marginTop="16dp"
                         android:gravity="start"
-                        android:hint="项目包名"
-                        android:layoutDirection="locale"
                         android:textAlignment="viewStart"
-                        app:pet_enableIconAlpha="true"
-                        app:pet_isAsteriskStyle="true" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:textDirection="locale">
 
+                        <com.xuexiang.xui.widget.edittext.ClearEditText
+                            android:id="@+id/input_create_project_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:hint="项目名称"
+                            android:layoutDirection="locale"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/textColor"
+                            app:pet_enableIconAlpha="true"
+                            app:pet_isAsteriskStyle="true" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

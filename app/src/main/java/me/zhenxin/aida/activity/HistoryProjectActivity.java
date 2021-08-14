@@ -13,14 +13,18 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
 import com.github.clans.fab.FloatingActionMenu;
+import com.xuexiang.xpage.base.XPageFragment;
+import com.xuexiang.xrouter.launcher.XRouter;
 import com.xuexiang.xui.utils.SnackbarUtils;
 import com.xuexiang.xui.widget.searchview.MaterialSearchView;
+import com.xuexiang.xutil.XUtil;
 import com.xuexiang.xutil.app.ActivityUtils;
 import com.xuexiang.xutil.common.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import me.zhenxin.aida.BuildConfig;
 import me.zhenxin.aida.R;
 import me.zhenxin.aida.adapter.HistoryProjectAdapter;
 import me.zhenxin.aida.databinding.ActivityHistoryProjectBinding;
@@ -231,7 +235,7 @@ public class HistoryProjectActivity extends BaseActivity {
     void onClickEvent(View v) {
         switch (v.getId()) {
             case R.id.pm_fab_create_project:
-                ActivityUtils.startActivity(CreateProjectActivity.class);
+                ActivityUtils.startActivity(new Intent(this, ChooseApkFragment.class));
                 break;
             case R.id.pm_fab_import:
                 break;
