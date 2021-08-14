@@ -96,9 +96,9 @@ public class FileManagerActivity extends AppCompatActivity {
                 } else {
                         Collections.sort(fileObjects, comparator);
                 }
-                FileToolBarHelper.setToolbarDirInfo(toolbar, dirNum, fileNum, 0, 0);
+                FileToolBarHelper.setToolbarDirInfo(mToolbar, dirNum, fileNum, 0, 0);
                 if(adapter == null) {
-                    adapter = new FileObjectAdapter(FileChooseActivity.this, fileObjects, fileManager);
+                    adapter = new FileObjectAdapter(FileManagerActivity.this, fileObjects, fileManager);
                     mListView.setAdapter(adapter);
                 } else {
                     adapter.notifyDataSetChanged();

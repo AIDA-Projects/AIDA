@@ -1,14 +1,17 @@
 package moe.ore.file.data;
 
-import android.icu.text.SimpleDateFormat;
+import android.annotation.SuppressLint;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import moe.ore.manager.helper.FileSizeConverter;
+import moe.ore.file.util.FileSizeConverter;
+
 
 public class FileObject {
+    @SuppressLint("ConstantLocale")
     private static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
 
     private final File file;
