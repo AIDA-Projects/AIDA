@@ -23,6 +23,15 @@
     <!--  悬浮菜单按钮默认色  -->
     <color name="menuBtnNormalColor">#2B2B2B</color>
 
+
+    <!--  简单子项 背景颜色  -->
+    <color name="simpleItemBackgroundColor">#303030</color>
+    <!--  简单子项 标题文字颜色  -->
+    <color name="simpleItemTitleColor">#E3E3E3</color>
+    <!--  简单子项 摘要文字颜色  -->
+    <color name="simpleItemSummaryColor">#787878</color>
+
+
     <!-- 文件选择器配色 -->
     <color name="file_choose_toolbar_subtitle_color">#969696</color>
     <color name="file_choose_base_color">#000000</color>

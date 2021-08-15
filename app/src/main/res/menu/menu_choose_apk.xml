@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_search_choose_apk"
+        android:icon="@drawable/icon_action_query"
+        android:orderInCategory="100"
+        android:title="@string/abc_search_hint"
+        app:showAsAction="ifRoom|collapseActionView" />
+    <item
+        android:id="@+id/menu_list_filter_choose_apk"
+        android:orderInCategory="1"
+        android:title="列表过滤"
+        app:showAsAction="withText">
+        <menu>
+            <group
+                android:id="@+id/group_list_filter"
+                android:checkableBehavior="all"
+                android:enabled="true"
+                android:menuCategory="system">
+                <item
+                    android:id="@+id/filter_menu_system_app"
+                    android:title="显示系统应用" />
+            </group>
+        </menu>
+    </item>
+</menu>

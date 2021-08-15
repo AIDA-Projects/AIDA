@@ -5,4 +5,6 @@
     <string name="file_choose_edit_time">21-06-28 19:46</string>
     <string name="file_choose_unit">5.20kb</string>
     <string name="fc_refresh">刷新</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
