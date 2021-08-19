@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context="moe.ore.file.FileManagerActivity">
 
     <LinearLayout
@@ -12,6 +13,7 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
+            style="@style/ToolbarStyle"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@color/file_choose_base_color"
@@ -33,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/fc_file_list"
+            android:dividerHeight="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

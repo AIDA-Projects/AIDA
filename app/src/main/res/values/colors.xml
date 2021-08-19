@@ -34,7 +34,7 @@
 
     <!-- 文件选择器配色 -->
     <color name="file_choose_toolbar_subtitle_color">#969696</color>
-    <color name="file_choose_base_color">#000000</color>
+    <color name="file_choose_base_color">#3C3F41</color>
     <color name="file_choose_base_color_dark">#232323</color>
 
     <color name="app_color_theme_1">#EF5362</color> <!-- Grapefruit -->

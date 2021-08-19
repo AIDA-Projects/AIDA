@@ -19,9 +19,6 @@
             android:name=".activity.ChooseApkActivity"
             android:exported="true" />
         <activity
-            android:name=".activity.ChooseApkFragment"
-            android:exported="true" />
-        <activity
             android:name=".activity.WelcomeActivity"
             android:exported="true" />
         <activity

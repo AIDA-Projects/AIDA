@@ -20,6 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.xuexiang.xui.utils.SnackbarUtils;
 import com.xuexiang.xui.widget.searchview.MaterialSearchView;
+import com.xuexiang.xutil.app.ActivityUtils;
 import com.xuexiang.xutil.common.StringUtils;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ import me.zhenxin.aida.databinding.ActivityChooseApkBinding;
 import me.zhenxin.aida.entity.SimpleItemEntity;
 import me.zhenxin.aida.utils.AppUtils;
 import me.zhenxin.aida.utils.GlobalConfig;
+import moe.ore.file.FileManagerActivity;
 
 public class ChooseApkActivity extends AppCompatActivity {
 
@@ -53,7 +55,6 @@ public class ChooseApkActivity extends AppCompatActivity {
         initViews();
         loadListView();
     }
-
 
 
     private void loadData() {
@@ -119,6 +120,13 @@ public class ChooseApkActivity extends AppCompatActivity {
                 String title = simpleItemEntity.getSimpleItemTitle();
                 String summary = simpleItemEntity.getSimpleItemSummary();
                 Toast.makeText(ChooseApkActivity.this, title + "  " + summary, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.fabChooseApk.fabBtnAddApk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityUtils.startActivity(FileManagerActivity.class);
             }
         });
     }

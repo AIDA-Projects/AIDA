@@ -27,9 +27,9 @@
 
     <ListView
         android:id="@+id/history_project_list_view"
-        android:dividerHeight="0dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:dividerHeight="0dp" />
 
     <include
         android:id="@+id/menu_project_manager_fab"

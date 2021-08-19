@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.clans.fab.FloatingActionButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fab_btn_add_apk"
+    android:src="@drawable/ic_swipe_menu_add"
+    android:layout_gravity="bottom|end"
+    android:layout_margin="@dimen/activity_vertical_margin"
+    app:fab_colorNormal="@color/menuBtnNormalColor"
+    app:fab_colorPressed="@color/btnPressedColor"
+    app:fab_colorRipple="@color/btnRippleColor"
+    app:menu_labels_ellipsize="end"
+    app:menu_labels_singleLine="true"
+    tools:ignore="RtlHardcoded"
+    style="@style/FabMenu.Buttons" />
